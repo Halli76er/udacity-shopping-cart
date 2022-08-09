@@ -122,7 +122,10 @@ function emptyCart() {
 let balance = 0;
 function pay(amount) {
   let sum = amount - cartTotal();
-  balance = sum;
+  if(sum < 0){
+    balance = sum;
+    return balance;
+  }
   return sum;
 }
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
