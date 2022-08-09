@@ -49,7 +49,7 @@ function addProductToCart(productId) {
   if (cart.includes(product)) {
     product.quantity += 1;
   } else {
-    product.quantity += 1;
+    product.quantity = 1;
     cart.push(product);
   }
 }
@@ -59,11 +59,11 @@ function addProductToCart(productId) {
   - increaseQuantity should then increase the product's quantity
 */
 function increaseQuantity(productId) {
-  for (i = 0; i < products.length; i++) {
-    if ((productId = products[i].productId)) {
-      products[i].quantity++;
+  cart.forEach((product) => {
+    if (productId === product.productId) {
+      product.quantity++;
     }
-  }
+  });
 }
 /* Create a function named decreaseQuantity that takes in the productId as an argument
   - decreaseQuantity should get the correct product based on the productId
