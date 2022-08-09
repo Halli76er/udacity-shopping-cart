@@ -46,14 +46,9 @@ const cart = [];
 */
 function addProductToCart(productId) {
   const product = products.find((product) => product.productId === productId);
-  console.log(product);
   if (cart.includes(product)) {
-    console.log("bin im Warenkorb dann nur Anzahl erhoehen");
     product.quantity += 1;
   } else {
-    console.log(
-      "bin nicht im Warenkorb und deshalb hinzufuegen und Anzahl erhoehen"
-    );
     product.quantity += 1;
     cart.push(product);
   }
@@ -124,12 +119,9 @@ function emptyCart() {
   - pay will return a negative number if there is a remaining balance
   - pay will return a positive number if money should be returned to customer
 */
+let balance = 0;
 function pay(amount) {
-  let balance = 0;
   let sum = amount - cartTotal();
-  if (balance < 0) {
-    return (balance = balance + amount);
-  }
   balance = sum;
   return sum;
 }
